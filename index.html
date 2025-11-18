@@ -16,8 +16,8 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* A dark blue-gray background */
-            color: #E5E7EB; /* Light gray text */
+            background-color: #111827; /* gray-900 */
+            color: #E5E7EB; /* gray-200 */
         }
         .glass-effect {
             background: rgba(255, 255, 255, 0.05);
@@ -41,6 +41,7 @@
             height: 100%;
             z-index: 0;
             opacity: 0.3;
+            pointer-events: none; /* Prevents canvas from blocking text selection */
         }
         .progress-bar-container {
             background-color: #374151; /* gray-700 */
@@ -53,7 +54,7 @@
             height: 100%;
             border-radius: 9999px;
             transition: width 1.5s ease-in-out;
-            width: 0; /* Start with 0 width */
+            width: 0; 
         }
         /* Timeline styles */
         .timeline-item {
@@ -78,9 +79,9 @@
         }
     </style>
 </head>
-<body class="flex flex-col md:flex-row min-h-screen">
+<body class="flex flex-col md:flex-row min-h-screen relative">
 
-    <aside class="hidden md:flex flex-col items-center w-20 p-4 bg-gray-900/50 space-y-8 sticky top-0 h-screen">
+    <aside class="hidden md:flex flex-col items-center w-20 p-4 bg-gray-900/50 space-y-8 sticky top-0 h-screen z-50 border-r border-gray-800">
         <div class="text-indigo-500 font-bold text-2xl">
             <svg xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
         </div>
@@ -98,7 +99,7 @@
         </div>
     </aside>
 
-    <main class="flex-1 p-6 sm:p-8 md:p-12 pb-28 md:pb-12 overflow-y-auto">
+    <main class="flex-1 p-6 sm:p-8 md:p-12 pb-28 md:pb-12 overflow-y-auto relative z-10">
         <div class="max-w-4xl mx-auto">
 
             <header class="flex justify-between items-center mb-12 md:justify-end">
@@ -114,13 +115,15 @@
             <section id="home" class="mb-24">
                 <div class="glass-effect rounded-2xl p-8 md:p-16 text-center relative overflow-hidden">
                     <canvas id="hero-canvas"></canvas>
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white relative z-10">Hi, I'm Patrick Mark</h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 relative z-10">
-                        A self-motivated Developer and Programmer building robust digital experiences.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-                        <a href="#projects" class="bg-indigo-600 text-white py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">View My Work</a>
-                        <a href="#contact" class="bg-gray-700 text-white py-3 px-8 rounded-lg hover:bg-gray-600 transition duration-300">Contact Me</a>
+                    <div class="relative z-10">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Hi, I'm Patrick Mark</h1>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8">
+                            A self-motivated Developer and Programmer building robust digital experiences.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="#projects" class="bg-indigo-600 text-white py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">View My Work</a>
+                            <a href="#contact" class="bg-gray-700 text-white py-3 px-8 rounded-lg hover:bg-gray-600 transition duration-300">Contact Me</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -139,7 +142,7 @@
                 </div>
             </section>
 
-            <section id="experience" class="mb-24">
+            <section id="experience" class="mb-24 scroll-mt-20">
                 <h2 class="text-3xl font-bold mb-12 text-white text-center">Work Experience</h2>
                 <div>
                     <div class="timeline-item">
@@ -172,7 +175,7 @@
                 </div>
             </section>
             
-            <section id="skills" class="mb-24">
+            <section id="skills" class="mb-24 scroll-mt-20">
                 <h2 class="text-3xl font-bold mb-12 text-white text-center">Tech Stack & Skills</h2>
                 <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
                     <div class="skill-item">
@@ -202,7 +205,7 @@
                 </div>
             </section>
 
-            <section id="projects" class="mb-24">
+            <section id="projects" class="mb-24 scroll-mt-20">
                 <h2 class="text-3xl font-bold mb-8 text-white text-center">Key Projects</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="glass-effect rounded-2xl p-6 flex flex-col">
@@ -232,7 +235,7 @@
                 </div>
             </section>
 
-            <section id="contact" class="text-center glass-effect rounded-2xl p-8 md:p-16">
+            <section id="contact" class="text-center glass-effect rounded-2xl p-8 md:p-16 mb-12">
                  <h2 class="text-3xl font-bold mb-4 text-white">Get In Touch</h2>
                  <p class="text-gray-400 mb-8 max-w-lg mx-auto">I'm currently open to new opportunities. Feel free to reach out if you have a project in mind or just want to connect.</p>
                  <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -249,7 +252,7 @@
             </section>
         </div>
         
-        <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm flex justify-around p-2 border-t border-gray-700">
+        <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm flex justify-around p-2 border-t border-gray-700 z-50">
              <a href="#home" class="icon-container p-3 rounded-lg flex-1 text-center"><i data-feather="home"></i></a>
              <a href="#about" class="icon-container p-3 rounded-lg flex-1 text-center"><i data-feather="user"></i></a>
              <a href="#experience" class="icon-container p-3 rounded-lg flex-1 text-center"><i data-feather="briefcase"></i></a>
@@ -261,6 +264,7 @@
     </main>
     
     <script>
+        // Initialize feather icons
         feather.replace();
 
         // --- 3D Hero Animation ---
@@ -270,7 +274,17 @@
             const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
             
-            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            // Initialize sizing
+            const updateSize = () => {
+                const container = canvas.parentElement;
+                if(container) {
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                }
+            };
+            updateSize();
+
             renderer.setPixelRatio(window.devicePixelRatio);
 
             const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
@@ -287,32 +301,22 @@
                 renderer.render(scene, camera);
             }
 
-            function onWindowResize() {
-                const container = canvas.parentElement;
-                if(container) {
-                    camera.aspect = container.clientWidth / container.clientHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(container.clientWidth, container.clientHeight);
-                }
-            }
-
-            window.addEventListener('resize', onWindowResize, false);
-            onWindowResize();
+            window.addEventListener('resize', updateSize, false);
             animate();
         }
 
 
-        // --- Intersection Observer for animations ---
+        // --- Intersection Observer for progress bars ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('skill-item')) {
-                        const bar = entry.target.querySelector('.progress-bar');
+                    const bar = entry.target.querySelector('.progress-bar');
+                    if (bar) {
                         bar.style.width = bar.dataset.width;
                     }
                 }
             });
-        }, { threshold: 0.5 }); 
+        }, { threshold: 0.3 }); 
 
         document.querySelectorAll('.skill-item').forEach(item => {
             observer.observe(item);
@@ -324,11 +328,11 @@
 
         const observerOptions = {
             root: null, 
-            rootMargin: '0px',
-            threshold: 0.4
+            rootMargin: '-50% 0px -50% 0px', // Active when section is in middle of screen
+            threshold: 0
         };
 
-        const sectionObserver = new IntersectionObserver((entries, observer) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
