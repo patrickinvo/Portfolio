@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
-    <!-- Import three.js for 3D graphics -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         html {
@@ -81,15 +80,14 @@
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
-    <!-- Sidebar Navigation -->
     <aside class="hidden md:flex flex-col items-center w-20 p-4 bg-gray-900/50 space-y-8 sticky top-0 h-screen">
         <div class="text-indigo-500 font-bold text-2xl">
-            <svg xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <svg xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
         </div>
         <nav class="flex flex-col items-center space-y-6 text-gray-400">
             <a href="#home" class="icon-container p-3 rounded-lg" aria-label="Home"><i data-feather="home"></i></a>
             <a href="#about" class="icon-container p-3 rounded-lg" aria-label="About"><i data-feather="user"></i></a>
-            <a href="#e ourxperience" class="icon-container p-3 rounded-lg" aria-label="Experience"><i data-feather="briefcase"></i></a>
+            <a href="#experience" class="icon-container p-3 rounded-lg" aria-label="Experience"><i data-feather="briefcase"></i></a>
             <a href="#skills" class="icon-container p-3 rounded-lg" aria-label="Skills"><i data-feather="bar-chart-2"></i></a>
             <a href="#projects" class="icon-container p-3 rounded-lg" aria-label="Projects"><i data-feather="layers"></i></a>
             <a href="#contact" class="icon-container p-3 rounded-lg" aria-label="Contact"><i data-feather="mail"></i></a>
@@ -100,24 +98,19 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
-    <!-- Added pb-28 md:pb-12 to prevent mobile nav from overlapping content -->
     <main class="flex-1 p-6 sm:p-8 md:p-12 pb-28 md:pb-12 overflow-y-auto">
         <div class="max-w-4xl mx-auto">
 
-            <!-- Mobile Header & Nav -->
             <header class="flex justify-between items-center mb-12 md:justify-end">
                 <div class="text-indigo-500 font-bold text-2xl md:hidden">
                     <svg xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                 </div>
-                <!-- Download Resume Button -->
                 <a href="https://drive.google.com/file/d/1Xx3GhBf-lDV9e9eWjs6tCq26Od5bKqwk/view?usp=drivesdk" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center gap-2">
                     <i data-feather="download" class="w-4 h-4"></i>
                     View CV
                 </a>
             </header>
 
-            <!-- Hero Section -->
             <section id="home" class="mb-24">
                 <div class="glass-effect rounded-2xl p-8 md:p-16 text-center relative overflow-hidden">
                     <canvas id="hero-canvas"></canvas>
@@ -132,7 +125,6 @@
                 </div>
             </section>
 
-            <!-- About Me Section -->
             <section id="about" class="mb-24">
                  <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <div class="w-48 h-48 md:w-60 md:h-60 flex-shrink-0">   
@@ -147,7 +139,6 @@
                 </div>
             </section>
 
-            <!-- Experience Section -->
             <section id="experience" class="mb-24">
                 <h2 class="text-3xl font-bold mb-12 text-white text-center">Work Experience</h2>
                 <div>
@@ -181,7 +172,6 @@
                 </div>
             </section>
             
-            <!-- Skills Section with Progress Bars -->
             <section id="skills" class="mb-24">
                 <h2 class="text-3xl font-bold mb-12 text-white text-center">Tech Stack & Skills</h2>
                 <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -212,7 +202,6 @@
                 </div>
             </section>
 
-            <!-- Projects Section -->
             <section id="projects" class="mb-24">
                 <h2 class="text-3xl font-bold mb-8 text-white text-center">Key Projects</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -222,27 +211,27 @@
                         <p class="text-gray-400 flex-grow mb-4">
                             A dedicated platform for managing and tracking sales pipelines, customer interactions, and performance metrics. Features include detailed reporting, workflow automation, and role-based access to boost sales team efficiency.
                         </p>
-                        <!-- <div class="mt-auto">
-                            <p class="text-sm font-semibold text-indigo-300 mb-2">Tools Used:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-700 text-gray-300 py-1 px-2 rounded text-xs">Codelghter</span>
-                                <span class="bg-gray-700 text-gray-300 py-1 px-2 rounded text-xs">PHP</span>
-                                <span class="bg-gray-700 text-gray-300 py-1 px-2 rounded text-xs">Jquey</span>
-                                <span class="bg-gray-700 text-gray-300 py-1 px-2 rounded text-xs">Boostrap</span>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="trello" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Sprint Tracking Tool</h3><p class="text-gray-400 flex-grow">An internal tool for managing and tracking development sprints.</p></div>
                     <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="users" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">HRIS</h3><p class="text-gray-400 flex-grow">A Human Resource Information System to manage employee data.</p></div>
                     <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="dollar-sign" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Computerized Accounting System (CAS)</h3><p class="text-gray-400 flex-grow">Backend accounting system for financial transactions and reporting.</p></div>
                     <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="settings" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Back Office Platform</h3><p class="text-gray-400 flex-grow">Comprehensive back-office platform for gaming operations.</p></div>
                     <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="cpu" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Machine Integration</h3><p class="text-gray-400 flex-grow">APIs and services to integrate with physical gambling machines.</p></div>
-                    <div class="glass-effect rounded-2x1 p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="users" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold md-2 text-white">Agent Management</h3><p class="text-gray-400 flex-grow">A centralized system for tracking and managing agents, including performance monitoring, task assignments, and detailed reporting. Features role-based user management and streamlined workflows to improve efficiency.</p></div>
-                    <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="globe" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Emotion Player Platform (Clone) </h3><p class="text-gray-400 mb-4 flex-grow">Contributed to backend services for a public-facing casino website.</p><a href="https://fbmemotioncasino.com/" target="_blank" class="text-indigo-400 hover:text-indigo-300 transition-colors self-start">View Site →</a></div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 flex flex-col">
+                        <div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                            <i data-feather="users" class="w-6 h-6 text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Agent Management</h3>
+                        <p class="text-gray-400 flex-grow">
+                            A centralized system for tracking and managing agents, including performance monitoring, task assignments, and detailed reporting. Features role-based user management and streamlined workflows to improve efficiency.
+                        </p>
+                    </div>
+
+                    <div class="glass-effect rounded-2xl p-6 flex flex-col"><div class="w-12 h-12 mb-4 bg-indigo-500/20 rounded-lg flex items-center justify-center"><i data-feather="globe" class="w-6 h-6 text-indigo-400"></i></div><h3 class="text-xl font-semibold mb-2 text-white">Emotion Player Platform (Clone)</h3><p class="text-gray-400 mb-4 flex-grow">Contributed to backend services for a public-facing casino website.</p><a href="https://fbmemotioncasino.com/" target="_blank" class="text-indigo-400 hover:text-indigo-300 transition-colors self-start">View Site →</a></div>
                 </div>
             </section>
 
-            <!-- Get In Touch Section -->
             <section id="contact" class="text-center glass-effect rounded-2xl p-8 md:p-16">
                  <h2 class="text-3xl font-bold mb-4 text-white">Get In Touch</h2>
                  <p class="text-gray-400 mb-8 max-w-lg mx-auto">I'm currently open to new opportunities. Feel free to reach out if you have a project in mind or just want to connect.</p>
@@ -260,7 +249,6 @@
             </section>
         </div>
         
-        <!-- Mobile Bottom Nav -->
         <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm flex justify-around p-2 border-t border-gray-700">
              <a href="#home" class="icon-container p-3 rounded-lg flex-1 text-center"><i data-feather="home"></i></a>
              <a href="#about" class="icon-container p-3 rounded-lg flex-1 text-center"><i data-feather="user"></i></a>
